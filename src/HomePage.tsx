@@ -1,13 +1,17 @@
-import React from "react";
-import {Menu, MenuItem, SubMenu} from "@szhsin/react-menu";
+import React, {useEffect} from "react";
+import SwapiApiService from "./api/SwapiApiService";
 
 
-export const FilmAutocomplete = () => {
+export const HomePage = () => {
+
+    useEffect(() => {
+        SwapiApiService.getFilm().then( (res: any) => {
+            console.log('res', res)
+        })
+
+    }, [])
     return (
-        <div
-        style={{
-
-        }}>
+        <div>
             <div className="d-flex">
                 <div style={{
                     position: 'relative',
@@ -70,29 +74,4 @@ export const FilmAutocomplete = () => {
 
         </div>
     )
-  
-}
-
-export const FilmAutocompleteMenu = () => {
-    return (
-        <div
-        style={{
-            maxWidth: '280px'
-        }}>
-               <Menu menuButton={
-                   // <MenuButton>Open menu</MenuButton>
-                   <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-               }>
-                  <MenuItem>New File</MenuItem>
-                  <MenuItem>Save</MenuItem>
-                  <SubMenu label="Edit">
-                    <MenuItem>Cut</MenuItem>
-                    <MenuItem>Copy</MenuItem>
-                    <MenuItem>Paste</MenuItem>
-                  </SubMenu>
-                  <MenuItem>Print...</MenuItem>
-                </Menu>
-        </div>
-    )
-
 }
