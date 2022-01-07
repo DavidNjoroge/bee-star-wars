@@ -11,6 +11,7 @@ class BaseService {
   }
 
   handleSuccess(response: any) {
+    console.log('handleSuccess', response)
     return response;
   }
 
@@ -35,7 +36,7 @@ class BaseService {
   }
 
   get(path: any) {
-    return this.service.get(path);
+    return this.service.get(path).then(this.handleSuccess);
   }
 
   patch(path: any, payload: any, callback: (arg0: any, arg1: any) => any) {
