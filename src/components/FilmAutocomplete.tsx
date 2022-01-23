@@ -50,9 +50,9 @@ export const FilmAutocomplete = ({delayDebounceTime = 300, onSearchChange, searc
                     <ul className="list-group"
                         style={{position: 'absolute'}}>
                         {
-                            searchList.map((searchFilm: any) => (
+                            searchList.map((searchFilm: any, index: number) => (
 
-                                <li className="list-group-item">
+                                <li className="list-group-item" key={index}>
                                     <button onClick={()=> selectFilm(searchFilm)}>
                                         {searchFilm.title}
                                     </button>

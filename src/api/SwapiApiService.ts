@@ -1,5 +1,4 @@
 import BaseService from "./BaseService";
-import {FilmResponseInterface} from "../interfaces/Film.interface";
 
 
 class SwapiApiService extends BaseService{
@@ -9,6 +8,10 @@ class SwapiApiService extends BaseService{
 
     getFilm() {
         return this.get(`/api/films/1/`)
+    }
+
+    getFilmByUrl(filmUrl: string) {
+        return this.get(filmUrl)
     }
 
     searchFilms(searchName: string) {

@@ -11,8 +11,7 @@ class BaseService {
   }
 
   handleSuccess(response: any) {
-    console.log('handleSuccess', response)
-    return response;
+    return response.data;
   }
 
   handleError = (error: { response: { status: any; }; }) => {
@@ -36,7 +35,7 @@ class BaseService {
   }
 
   get(path: any) {
-    return this.service.get(path).then(this.handleSuccess);
+    return this.service.get(path);
   }
 
   patch(path: any, payload: any, callback: (arg0: any, arg1: any) => any) {

@@ -1,7 +1,11 @@
+import {FilmResponseInterface} from "../interfaces/Index.interface";
 
 
+interface FilmDetailSectionProps {
+    selectedFilm?: FilmResponseInterface
+}
 
-export const FilmDetailSection = () => {
+export const FilmDetailSection = ({selectedFilm}: FilmDetailSectionProps) => {
     return (
         <div style={{
             // backgroundImage: `url(${process.env.PUBLIC_URL +'/starwars_logo_1.jpg'})`,
@@ -10,7 +14,7 @@ export const FilmDetailSection = () => {
             // backgroundPosition: 'center',
             // color: 'white'
         }}>
-            <h2>Title</h2>
+            <h2>Title: {selectedFilm?.title}</h2>
             <footer className="blockquote-footer">Release date</footer>
             <p>description</p>
             <p>Director</p>
